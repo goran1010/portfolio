@@ -8,11 +8,9 @@ const translations = {
       contact: "Contact",
     },
     hero: {
-      greeting: "Hi, I'm",
-      name: "Your Name",
-      title: "Full Stack Developer",
-      description:
-        "I build exceptional digital experiences that make a difference.",
+      greeting: "Hey there, I'm",
+      name: "Goran Jović",
+      title: "Full-stack Developer",
       cta: "View My Work",
       contact: "Get In Touch",
     },
@@ -29,21 +27,18 @@ const translations = {
       items: [
         {
           title: "Project One",
-          description:
-            "A comprehensive web application built with modern technologies. Features include real-time updates, user authentication, and responsive design.",
-          tech: ["React", "Node.js", "MongoDB"],
+          description: "Coming soon...",
+          tech: ["React", "Node.js"],
         },
         {
           title: "Project Two",
-          description:
-            "An innovative solution for data visualization and analytics. Processes large datasets and presents insights through interactive charts.",
-          tech: ["TypeScript", "D3.js", "PostgreSQL"],
+          description: "Coming soon...",
+          tech: ["PostgreSQL"],
         },
         {
           title: "Project Three",
-          description:
-            "Mobile-first e-commerce platform with seamless payment integration and inventory management system.",
-          tech: ["Next.js", "Stripe", "Tailwind CSS"],
+          description: "Coming soon...",
+          tech: ["Tailwind CSS"],
         },
       ],
     },
@@ -55,9 +50,7 @@ const translations = {
     },
     contact: {
       title: "Get In Touch",
-      description:
-        "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
-      email: "your.email@example.com",
+      email: "goran1010jovic@gmail.com",
       cta: "Send Message",
     },
     footer: {
@@ -75,9 +68,8 @@ const translations = {
     },
     hero: {
       greeting: "Zdravo, ja sam",
-      name: "Vaše Ime",
-      title: "Full Stack Developer",
-      description: "Gradim izuzetna digitalna iskustva koja prave razliku.",
+      name: "Goran Jović",
+      title: "Full-stack Developer",
       cta: "Pogledaj Rad",
       contact: "Stupi u Kontakt",
     },
@@ -94,21 +86,18 @@ const translations = {
       items: [
         {
           title: "Projekat Jedan",
-          description:
-            "Sveobuhvatna web aplikacija izgrađena sa modernim tehnologijama. Uključuje ažuriranja u realnom vremenu, autentifikaciju korisnika i responzivan dizajn.",
-          tech: ["React", "Node.js", "MongoDB"],
+          description: "Uskoro...",
+          tech: ["React", "Node.js"],
         },
         {
           title: "Projekat Dva",
-          description:
-            "Inovativno rješenje za vizualizaciju i analitiku podataka. Obrađuje velike skupove podataka i prezentuje uvide kroz interaktivne grafikone.",
-          tech: ["TypeScript", "D3.js", "PostgreSQL"],
+          description: "Uskoro...",
+          tech: ["PostgreSQL"],
         },
         {
           title: "Projekat Tri",
-          description:
-            "Mobile-first e-commerce platforma sa besprijekornom integracijom plaćanja i sistemom za upravljanje zalihama.",
-          tech: ["Next.js", "Stripe", "Tailwind CSS"],
+          description: "Uskoro...",
+          tech: ["Tailwind CSS"],
         },
       ],
     },
@@ -120,9 +109,7 @@ const translations = {
     },
     contact: {
       title: "Stupi u Kontakt",
-      description:
-        "Uvijek sam otvoren za diskusiju o novim projektima, kreativnim idejama ili prilikama da budem dio vaše vizije.",
-      email: "vas.email@example.com",
+      email: "goran1010jovic@gmail.com",
       cta: "Pošalji Poruku",
     },
     footer: {

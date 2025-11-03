@@ -1,18 +1,11 @@
 import { Globe, Moon, Sun, Menu, X } from "lucide-react";
 
-const Nav = ({
-  t,
-  darkMode,
-  onToggleDark,
-  onToggleLanguage,
-  mobileMenuOpen,
-  setMobileMenuOpen,
-}) => {
+const Nav = ({ t, onToggleLanguage, mobileMenuOpen, setMobileMenuOpen }) => {
   return (
     <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Portfolio
           </div>
 
@@ -59,17 +52,7 @@ const Nav = ({
             >
               <Globe className="w-5 h-5" />
             </button>
-            <button
-              onClick={onToggleDark}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"

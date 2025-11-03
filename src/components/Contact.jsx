@@ -5,9 +5,7 @@ const Contact = ({ t }) => {
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">{t.contact.title}</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-          {t.contact.description}
-        </p>
+
         <div className="flex justify-center gap-6 mb-8">
           <a
             href={`mailto:${t.contact.email}`}
@@ -17,13 +15,13 @@ const Contact = ({ t }) => {
             {t.contact.email}
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/goran1010"
             className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
           >
             <Github className="w-5 h-5" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/goran-jovic-dev"
             className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
           >
             <Linkedin className="w-5 h-5" />

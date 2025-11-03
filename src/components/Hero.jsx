@@ -12,9 +12,6 @@ const Hero = ({ t }) => {
           <p className="text-2xl sm:text-3xl text-gray-700 dark:text-gray-300 mb-6">
             {t.hero.title}
           </p>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            {t.hero.description}
-          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#projects"

@@ -9,43 +9,15 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 const Root = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState("en");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const savedLang = localStorage.getItem("language");
-
-    if (savedTheme) {
-      setDarkMode(savedTheme === "dark");
-    } else {
-      setDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
-    }
-
-    if (savedLang) {
-      setLanguage(savedLang);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
 
   useEffect(() => {
     localStorage.setItem("language", language);
   }, [language]);
 
   const t = translations[language];
-
   const toggleLanguage = () => setLanguage((l) => (l === "en" ? "sr" : "en"));
-  const toggleDark = () => setDarkMode((d) => !d);
 
   const skillsData = {
     frontend: [
@@ -68,16 +40,10 @@ const Root = () => {
   };
 
   return (
-    <div
-      className={`min-h-screen transition-colors duration-300 ${
-        darkMode ? "dark" : ""
-      }`}
-    >
+    <div className={`min-h-screen transition-colors duration-300 ease-in-out`}>
       <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         <Nav
           t={t}
-          darkMode={darkMode}
-          onToggleDark={toggleDark}
           onToggleLanguage={toggleLanguage}
           mobileMenuOpen={mobileMenuOpen}
           setMobileMenuOpen={setMobileMenuOpen}
