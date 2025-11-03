@@ -1,3 +1,3 @@
-## My porftolio website.
+## My portfolio  website.
 
 ... currently under construction
