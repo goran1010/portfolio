@@ -21,22 +21,24 @@ const Root = () => {
 
   const skillsData = {
     frontend: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Next.js",
-      "Vue.js",
       "HTML/CSS",
+      "JavaScript",
+      "React",
+      "Tailwind CSS",
+      "Flexbox",
+      "Grid",
     ],
-    backend: [
-      "Node.js",
-      "Express",
-      "Python",
-      "PostgreSQL",
-      "MongoDB",
-      "REST APIs",
+    backend: ["Node.js", "Express", "PostgreSQL", "Prisma", "REST APIs"],
+    tools: [
+      "Git",
+      "GitHub",
+      "Postman",
+      "Terminal",
+      "Vite",
+      "Webpack",
+      "Jest",
+      "Vitest",
     ],
-    tools: ["Git", "Docker", "AWS", "Figma", "Linux", "CI/CD"],
   };
 
   return (

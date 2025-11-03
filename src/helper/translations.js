@@ -16,9 +16,9 @@ const translations = {
     },
     about: {
       title: "About Me",
-      p1: "I'm a passionate developer with a love for creating elegant solutions to complex problems. With years of experience in web development, I specialize in building responsive, user-friendly applications.",
-      p2: "When I'm not coding, you can find me exploring new technologies, contributing to open source, or sharing knowledge with the developer community.",
-      p3: "I believe in writing clean, maintainable code and always strive to stay current with the latest industry trends and best practices.",
+      p1: "Programmer, full-stack web developer, open-source enjoyer, and all-around decent guy.",
+      p2: "I've been building apps using vanilla HTML, CSS, and JavaScript, as well as React and Tailwind on the front-end. On the back-end, I mainly work with Node.js, Express, and PostgreSQL / Prisma.",
+      p3: "These days, I'm planning a new project where I'll be learning and utilizing TypeScript as I go - and after working with relational databases, I'm exploring the non-relational world of MongoDB.",
     },
     projects: {
       title: "Featured Projects",
@@ -28,17 +28,17 @@ const translations = {
         {
           title: "Project One",
           description: "Coming soon...",
-          tech: ["React", "Node.js"],
+          tech: ["React", "Express", "Prisma"],
         },
         {
           title: "Project Two",
           description: "Coming soon...",
-          tech: ["PostgreSQL"],
+          tech: ["React", "Express", "Prisma"],
         },
         {
           title: "Project Three",
           description: "Coming soon...",
-          tech: ["Tailwind CSS"],
+          tech: ["React", "Express", "Prisma"],
         },
       ],
     },
@@ -54,7 +54,6 @@ const translations = {
       cta: "Send Message",
     },
     footer: {
-      rights: "All rights reserved.",
       built: "Built with React & Tailwind CSS",
     },
   },
@@ -75,9 +74,9 @@ const translations = {
     },
     about: {
       title: "O Meni",
-      p1: "Ja sam strastveni developer sa ljubavlju prema kreiranju elegantnih rješenja za kompleksne probleme. Sa godinama iskustva u web developmentu,specijalizujem se za izradu responzivnih, korisničkih aplikacija.",
-      p2: "Kada ne kodiram, možete me naći kako istražujem nove tehnologije, doprinosim open source projektima, ili dijelim znanje sa developer zajednicom.",
-      p3: "Vjerujem u pisanje čistog, održivog koda i uvijek nastojim da ostanem u toku sa najnovijim trendovima i najboljim praksama u industriji.",
+      p1: "Programer, full-stack web developer, open-source entuzijasta i neko ko uvijek istražuje.",
+      p2: "Izgradio sam aplikacije koristeći vanilla HTML, CSS, i JavaScript, kao i React i Tailwind na front-endu. Na back-endu uglavnom radim sa Node.js, Express, i PostgreSQL / Prisma.",
+      p3: "Ove dane planiram novi projekat gdje ću učiti i koristiti TypeScript - i nakon rada sa relacijskim bazama podataka, istražujem nerelacijski svijet MongoDB-a.",
     },
     projects: {
       title: "Istaknuti Projekti",
@@ -87,17 +86,17 @@ const translations = {
         {
           title: "Projekat Jedan",
           description: "Uskoro...",
-          tech: ["React", "Node.js"],
+          tech: ["React", "Express", "Prisma"],
         },
         {
           title: "Projekat Dva",
           description: "Uskoro...",
-          tech: ["PostgreSQL"],
+          tech: ["React", "Express", "Prisma"],
         },
         {
           title: "Projekat Tri",
           description: "Uskoro...",
-          tech: ["Tailwind CSS"],
+          tech: ["React", "Express", "Prisma"],
         },
       ],
     },
@@ -113,7 +112,6 @@ const translations = {
       cta: "Pošalji Poruku",
     },
     footer: {
-      rights: "Sva prava zadržana.",
       built: "Napravljeno sa React & Tailwind CSS",
     },
   },

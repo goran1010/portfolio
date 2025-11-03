@@ -6,7 +6,7 @@ const Hero = ({ t }) => {
           <p className="text-blue-600 dark:text-blue-400 text-lg mb-4">
             {t.hero.greeting}
           </p>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             {t.hero.name}
           </h1>
           <p className="text-2xl sm:text-3xl text-gray-700 dark:text-gray-300 mb-6">
