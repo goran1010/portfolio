@@ -6,6 +6,9 @@ const translations = {
       projects: "Projects",
       skills: "Skills",
       contact: "Contact",
+      cv: "Download CV",
+      cvEn: "English CV",
+      cvSr: "Serbian CV",
     },
     hero: {
       greeting: "Hey there, I'm",
@@ -64,6 +67,9 @@ const translations = {
       projects: "Projekti",
       skills: "Vještine",
       contact: "Kontakt",
+      cv: "Preuzmi CV",
+      cvEn: "CV na engleskom",
+      cvSr: "CV na srpskom",
     },
     hero: {
       greeting: "Zdravo, ja sam",
