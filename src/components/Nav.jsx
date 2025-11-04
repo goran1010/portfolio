@@ -1,6 +1,6 @@
 import { Globe, Moon, Sun, Menu, X } from "lucide-react";
 
-const Nav = ({ t, onToggleLanguage, mobileMenuOpen, setMobileMenuOpen }) => {
+const Nav = ({ text, onToggleLanguage, mobileMenuOpen, setMobileMenuOpen }) => {
   return (
     <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,31 +15,31 @@ const Nav = ({ t, onToggleLanguage, mobileMenuOpen, setMobileMenuOpen }) => {
               href="#home"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              {t.nav.home}
+              {text.nav.home}
             </a>
             <a
               href="#about"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              {t.nav.about}
+              {text.nav.about}
             </a>
             <a
               href="#projects"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              {t.nav.projects}
+              {text.nav.projects}
             </a>
             <a
               href="#skills"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              {t.nav.skills}
+              {text.nav.skills}
             </a>
             <a
               href="#contact"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              {t.nav.contact}
+              {text.nav.contact}
             </a>
           </div>
 
@@ -77,35 +77,35 @@ const Nav = ({ t, onToggleLanguage, mobileMenuOpen, setMobileMenuOpen }) => {
               className="block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {t.nav.home}
+              {text.nav.home}
             </a>
             <a
               href="#about"
               className="block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {t.nav.about}
+              {text.nav.about}
             </a>
             <a
               href="#projects"
               className="block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {t.nav.projects}
+              {text.nav.projects}
             </a>
             <a
               href="#skills"
               className="block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {t.nav.skills}
+              {text.nav.skills}
             </a>
             <a
               href="#contact"
               className="block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {t.nav.contact}
+              {text.nav.contact}
             </a>
           </div>
         </div>

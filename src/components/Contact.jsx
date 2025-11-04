@@ -1,18 +1,18 @@
 import { Mail, Github, Linkedin } from "lucide-react";
 
-const Contact = ({ t }) => {
+const Contact = ({ text }) => {
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">{t.contact.title}</h2>
+        <h2 className="text-4xl font-bold mb-6">{text.contact.title}</h2>
 
         <div className="flex justify-center gap-6 mb-8">
           <a
-            href={`mailto:${t.contact.email}`}
+            href={`mailto:${text.contact.email}`}
             className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline"
           >
             <Mail className="w-5 h-5" />
-            {t.contact.email}
+            {text.contact.email}
           </a>
           <a
             href="https://github.com/goran1010"
@@ -28,10 +28,10 @@ const Contact = ({ t }) => {
           </a>
         </div>
         <a
-          href={`mailto:${t.contact.email}`}
+          href={`mailto:${text.contact.email}`}
           className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
-          {t.contact.cta}
+          {text.contact.cta}
         </a>
       </div>
     </section>

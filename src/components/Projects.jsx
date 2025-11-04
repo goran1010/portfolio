@@ -1,14 +1,14 @@
 import { ExternalLink, Github } from "lucide-react";
 
-const Projects = ({ projects, t }) => {
-  // `projects` can be t.projects or an array; prefer passed `projects` object
-  const items = projects?.items ?? t.projects.items;
+const Projects = ({ projects, text }) => {
+  // `projects` can be text.projects or an array; prefer passed `projects` object
+  const items = projects?.items ?? text.projects.items;
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-12 text-center">
-          {t.projects.title}
+          {text.projects.title}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((project, index) => (
@@ -33,11 +33,11 @@ const Projects = ({ projects, t }) => {
               <div className="flex gap-4">
                 <button className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline">
                   <ExternalLink className="w-4 h-4" />
-                  {t.projects.viewProject}
+                  {text.projects.viewProject}
                 </button>
                 <button className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:underline">
                   <Github className="w-4 h-4" />
-                  {t.projects.viewCode}
+                  {text.projects.viewCode}
                 </button>
               </div>
             </div>
