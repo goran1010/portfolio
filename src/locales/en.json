@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Goran Jović - Software Developer"
+  },
+  "theme": {
+    "label": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "label": "Language",
+    "system": "System",
+    "en": "English",
+    "sr": "Serbian"
+  },
+  "hero": {
+    "title": "Software Developer"
+  }
+}

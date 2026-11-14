@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Goran Jović - Programer"
+  },
+  "theme": {
+    "label": "Tema",
+    "system": "Sistemska",
+    "light": "Svijetla",
+    "dark": "Tamna"
+  },
+  "language": {
+    "label": "Jezik",
+    "system": "Sistemski",
+    "en": "Engleski",
+    "sr": "Srpski"
+  },
+  "hero": {
+    "title": "Programer"
+  }
+}
