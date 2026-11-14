@@ -59,6 +59,9 @@ describe("App", () => {
       "Web razvoj sam učio kroz The Odin Project",
     );
     expect(screen.getByRole("link", { name: "Vještine" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("region", { name: "Open-source i istraživanje" }),
+    ).toHaveTextContent("maintainer od maja 2026");
     expect(document.documentElement.lang).toBe("sr-Latn");
   });
 });

@@ -38,6 +38,20 @@
   "about": {
     "body": "Web razvoj sam učio kroz The Odin Project, a danas kao maintainer pomažem u unapređivanju njegovog nastavnog programa. U međuvremenu sam napravio i postavio svoje aplikacije, od korisničkog interfejsa do servera i baze podataka. Trudim se da kod bude pregledan i pouzdan, uz automatizovane testove, pregled izmjena i CI/CD."
   },
+  "openSource": {
+    "odin": {
+      "role": "Contributor od 2025; maintainer od maja 2026.",
+      "curriculum": "Završio Full Stack JavaScript program.",
+      "review": "Pregledam pull requestove, razvrstavam prijavljene probleme i sarađujem sa zajednicom.",
+      "tooling": "Unapređujem lekcije i alate repozitorijuma, uključujući prilagođena ESLint pravila.",
+      "mergedPullRequests": "Merged pull requests"
+    },
+    "metr": {
+      "period": "Novembar 2025 - danas",
+      "study": "Studija o AI alatima i radu programera",
+      "description": "Učestvujem u istraživanju uticaja AI alata na rad programera. Završio sam 200+ zadataka na ličnim i open-source projektima, uz AI pomoć i bez nje."
+    }
+  },
   "footer": {
     "source": "Izvorni kod"
   }

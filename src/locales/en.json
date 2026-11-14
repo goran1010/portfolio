@@ -38,6 +38,20 @@
   "about": {
     "body": "I started learning web development through The Odin Project and stayed involved long enough to become a maintainer. Since then, I've built and deployed my own full-stack applications, from frontend to API and database. I care about keeping software reliable through automated testing, code review, and CI/CD."
   },
+  "openSource": {
+    "odin": {
+      "role": "Contributor since 2025; maintainer since May 2026.",
+      "curriculum": "Completed the Full Stack JavaScript curriculum.",
+      "review": "I review pull requests, triage issues, and collaborate with contributors to keep the curriculum up to date.",
+      "tooling": "I improve lessons and repository tooling, including custom ESLint rules for curriculum conventions.",
+      "mergedPullRequests": "Merged pull requests"
+    },
+    "metr": {
+      "period": "November 2025 - present",
+      "study": "Developer Productivity Study",
+      "description": "I participate in research on the impact of AI tools on developer productivity. I've completed 200+ tasks across personal and open-source projects, with and without AI assistance."
+    }
+  },
   "footer": {
     "source": "Source code"
   }
