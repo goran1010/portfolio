@@ -5,7 +5,8 @@
     "src/**/*.{ts,tsx,json}",
     "__tests__/**/*.{ts,tsx}",
     "index.html",
-    "README.md"
+    "README.md",
+    ".github/**/*.{yml,yaml,md}"
   ],
   "ignorePaths": ["**/node_modules/**", "**/dist/**", "**/coverage/**"],
   "import": [
@@ -14,5 +15,5 @@
     "@cspell/dict-sr-latn/cspell-ext.json"
   ],
   "dictionaries": ["hr-hr", "sr-latn"],
-  "words": []
+  "words": ["nvmrc"]
 }
