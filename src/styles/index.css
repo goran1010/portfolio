@@ -1,3 +1,7 @@
+/* Theme is class-driven (.dark on <html>) rather than prefers-color-scheme,
+   so the switcher can offer light / dark / system. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import "tailwindcss";
 
 @font-face {
@@ -77,8 +81,41 @@
     Cantarell, "Helvetica Neue", sans-serif;
 }
 
+:root {
+  color-scheme: light;
+  --app-bg: linear-gradient(180deg, #f2f7ff 0%, #f8fafc 40%, #eef4ff 100%);
+  --text-primary: #0f172a;
+  --surface-1: rgba(255, 255, 255, 0.92);
+  --border-color: rgba(59, 130, 246, 0.45);
+  --hover-surface: rgba(59, 130, 246, 0.14);
+  --focus-ring: rgba(37, 99, 235, 0.85);
+  --card-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
+  --card-shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  color-scheme: dark;
+  --app-bg: linear-gradient(180deg, #020817 0%, #081328 42%, #111827 100%);
+  --text-primary: #e2e8f0;
+  --surface-1: rgba(15, 23, 42, 0.74);
+  --border-color: rgba(148, 163, 184, 0.33);
+  --hover-surface: rgba(96, 165, 250, 0.13);
+  --focus-ring: rgba(147, 197, 253, 0.52);
+  --card-shadow: 0 20px 44px rgba(2, 6, 23, 0.48);
+  --card-shadow-soft: 0 12px 28px rgba(2, 6, 23, 0.36);
+}
+
 @layer base {
+  body {
+    background: var(--app-bg);
+    color: var(--text-primary);
+    min-height: 100dvh;
+  }
+
   #root {
     min-width: 320px;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
   }
 }

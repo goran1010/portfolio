@@ -66,6 +66,10 @@
       type="font/woff2"
       crossorigin
     />
+
+    <!-- Apply the theme before first paint to avoid a flash of the wrong
+         theme. Mirrors src/utils/theme.ts - keep the two in sync. -->
+    <script src="/theme-init.js"></script>
   </head>
   <body>
     <div id="root"></div>
