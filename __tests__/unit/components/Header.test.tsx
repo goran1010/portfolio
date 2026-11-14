@@ -32,7 +32,7 @@ describe("Header", () => {
     ).toBeInTheDocument();
     expect(navLinks().map(([text]) => text)).toEqual([
       "O meni",
-      "Otvoreni kod i istraživanje",
+      "Open-source i istraživanje",
       "Projekti",
       "Vještine",
       "Kontakt",
