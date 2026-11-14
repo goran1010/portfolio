@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "files": [
+    "src/**/*.{ts,tsx,json}",
+    "__tests__/**/*.{ts,tsx}",
+    "index.html",
+    "README.md"
+  ],
+  "ignorePaths": ["**/node_modules/**", "**/dist/**", "**/coverage/**"],
+  "import": [
+    "@cspell/cspell-bundled-dicts",
+    "@cspell/dict-hr-hr/cspell-ext.json",
+    "@cspell/dict-sr-latn/cspell-ext.json"
+  ],
+  "dictionaries": ["hr-hr", "sr-latn"],
+  "words": []
+}
