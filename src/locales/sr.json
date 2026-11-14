@@ -2,6 +2,17 @@
   "meta": {
     "title": "Goran Jović - Programer"
   },
+  "nav": {
+    "label": "Sekcije stranice",
+    "skipToContent": "Preskoči na sadržaj"
+  },
+  "sections": {
+    "about": "O meni",
+    "experience": "Otvoreni kod i istraživanje",
+    "projects": "Projekti",
+    "skills": "Vještine",
+    "contact": "Kontakt"
+  },
   "theme": {
     "label": "Tema",
     "system": "Sistemska",
@@ -14,7 +25,13 @@
     "en": "Engleski",
     "sr": "Srpski"
   },
+  "links": {
+    "opensInNewTab": "(otvara se u novoj kartici)"
+  },
   "hero": {
     "title": "Programer"
+  },
+  "footer": {
+    "source": "Izvorni kod"
   }
 }

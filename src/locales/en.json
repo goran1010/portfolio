@@ -2,6 +2,17 @@
   "meta": {
     "title": "Goran Jović - Software Developer"
   },
+  "nav": {
+    "label": "Page sections",
+    "skipToContent": "Skip to content"
+  },
+  "sections": {
+    "about": "About",
+    "experience": "Open source & research",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
   "theme": {
     "label": "Theme",
     "system": "System",
@@ -14,7 +25,13 @@
     "en": "English",
     "sr": "Serbian"
   },
+  "links": {
+    "opensInNewTab": "(opens in new tab)"
+  },
   "hero": {
     "title": "Software Developer"
+  },
+  "footer": {
+    "source": "Source code"
   }
 }

@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
 import { App } from "../../src/App";
 import { renderWithProviders } from "../utils/renderWithProviders";
 
@@ -11,6 +11,32 @@ describe("App", () => {
     ).toBeInTheDocument();
   });
 
+  test("focuses the skip link first, and it targets main", async () => {
+    const { user } = renderWithProviders(<App />);
+
+    await user.tab();
+
+    const skipLink = screen.getByRole("link", { name: "Skip to content" });
+    expect(skipLink).toHaveFocus();
+    expect(skipLink).toHaveAttribute("href", "#main-content");
+    expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
+  });
+
+  test("every nav link points at a section with the same heading", () => {
+    renderWithProviders(<App />);
+
+    const nav = screen.getByRole("navigation", { name: "Page sections" });
+    const links = within(nav).getAllByRole("link");
+
+    expect(links).toHaveLength(5);
+    for (const link of links) {
+      const target = document.querySelector(link.getAttribute("href") ?? "");
+      expect(target, link.textContent).toBe(
+        screen.getByRole("region", { name: link.textContent }),
+      );
+    }
+  });
+
   test("switches the page text to Serbian from the language switcher", async () => {
     localStorage.setItem("language", "en");
     const { user } = renderWithProviders(<App />);
@@ -20,6 +46,7 @@ describe("App", () => {
     await user.click(screen.getByRole("button", { name: /^Language:/ }));
 
     expect(screen.getByText("Programer")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Vještine" })).toBeInTheDocument();
     expect(document.documentElement.lang).toBe("sr-Latn");
   });
 });
