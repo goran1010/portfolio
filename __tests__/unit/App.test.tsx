@@ -42,10 +42,22 @@ describe("App", () => {
     const { user } = renderWithProviders(<App />);
 
     expect(screen.getByText("Software Developer")).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Download CV (PDF)" }),
+    ).toHaveAttribute("href", "/Goran-Jovic-CV-en.pdf");
+    expect(screen.getByRole("region", { name: "About" })).toHaveTextContent(
+      "I started learning web development through The Odin Project",
+    );
 
     await user.click(screen.getByRole("button", { name: /^Language:/ }));
 
     expect(screen.getByText("Programer")).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Preuzmi CV (PDF)" }),
+    ).toHaveAttribute("href", "/Goran-Jovic-CV-sr.pdf");
+    expect(screen.getByRole("region", { name: "O meni" })).toHaveTextContent(
+      "Web razvoj sam učio kroz The Odin Project",
+    );
     expect(screen.getByRole("link", { name: "Vještine" })).toBeInTheDocument();
     expect(document.documentElement.lang).toBe("sr-Latn");
   });

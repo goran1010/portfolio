@@ -26,10 +26,17 @@
     "sr": "Serbian"
   },
   "links": {
-    "opensInNewTab": "(opens in new tab)"
+    "opensInNewTab": "(opens in new tab)",
+    "email": "Email"
   },
   "hero": {
-    "title": "Software Developer"
+    "title": "Software Developer",
+    "pitch": "I build full-stack web applications with React, Node.js, and PostgreSQL, backed by automated tests.",
+    "location": "Banja Luka area, Bosnia and Herzegovina",
+    "downloadCv": "Download CV (PDF)"
+  },
+  "about": {
+    "body": "I started learning web development through The Odin Project and stayed involved long enough to become a maintainer. Since then, I've built and deployed my own full-stack applications, from frontend to API and database. I care about keeping software reliable through automated testing, code review, and CI/CD."
   },
   "footer": {
     "source": "Source code"
