@@ -392,6 +392,33 @@ for (const mode of [
   });
 }
 
+test("social metadata references a valid 1200x630 image", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/");
+  const imageUrl = "https://goranjovic.netlify.app/images/og-image.png";
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    "content",
+    imageUrl,
+  );
+  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute(
+    "content",
+    imageUrl,
+  );
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+    "content",
+    "summary_large_image",
+  );
+  const response = await request.get(new URL(imageUrl).pathname);
+  await expect(response).toBeOK();
+  expect(response.headers()["content-type"]).toContain("image/png");
+  const png = await response.body();
+  expect(png.subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");
+  expect(png.readUInt32BE(16)).toBe(1200);
+  expect(png.readUInt32BE(20)).toBe(630);
+});
+
 test("language choices change page text and persist across reloads", async ({
   page,
 }) => {

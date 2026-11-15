@@ -18,6 +18,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "install:browsers": "playwright install chromium",
+    "capture-og": "npm run build && node scripts/capture-og-image.ts",
     "spell": "cspell --no-progress --config .cspell.json"
   },
   "dependencies": {

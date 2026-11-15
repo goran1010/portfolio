@@ -84,14 +84,11 @@ function Header() {
           setIsMenuOpen(false);
         }
       }}
-      className="relative mx-auto grid w-full max-w-5xl grid-cols-[auto_minmax(0,1fr)_auto_auto] items-center gap-x-2 gap-y-3 p-4 sm:px-6 md:grid-cols-[auto_minmax(0,1fr)_auto] md:gap-x-4"
+      className="relative mx-auto grid w-full max-w-5xl grid-cols-[auto_minmax(0,1fr)_auto_auto] items-center gap-x-2 p-4 sm:px-6 md:grid-cols-[auto_minmax(0,1fr)_auto] md:gap-x-4"
     >
-      <div className="col-start-1 row-start-1 md:row-start-2">
+      <div className="col-start-1 row-start-1">
         <ThemeSwitcher />
       </div>
-      <span className="col-start-2 row-start-1 min-w-0 text-base font-semibold sm:text-lg md:col-span-3 md:col-start-1">
-        Goran Jović
-      </span>
       {!isDesktop && (
         <button
           ref={toggleRef}
@@ -112,7 +109,7 @@ function Header() {
         id={navigationId}
         aria-label={t("nav.label")}
         hidden={!isDesktop && !isMenuOpen}
-        className="absolute top-full right-4 left-4 z-20 rounded-md border border-(--border-color) bg-(--surface-popover) p-2 shadow-(--card-shadow) sm:right-6 sm:left-6 md:static md:col-start-2 md:row-start-2 md:border-0 md:bg-transparent md:p-0 md:shadow-none"
+        className="absolute top-full right-4 left-4 z-20 rounded-md border border-(--border-color) bg-(--surface-popover) p-2 shadow-(--card-shadow) sm:right-6 sm:left-6 md:static md:col-start-2 md:row-start-1 md:border-0 md:bg-transparent md:p-0 md:shadow-none"
       >
         <ul className="flex flex-col gap-1 text-sm font-medium md:flex-row md:flex-wrap md:justify-center md:gap-x-5 md:gap-y-1">
           {SECTION_IDS.map((id) => (
@@ -130,7 +127,7 @@ function Header() {
           ))}
         </ul>
       </nav>
-      <div className="col-start-4 row-start-1 md:col-start-3 md:row-start-2">
+      <div className="col-start-4 row-start-1 md:col-start-3">
         <LanguageSwitcher />
       </div>
     </header>
