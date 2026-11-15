@@ -1,9 +1,8 @@
-/// <reference types="vitest/config" />
-
 import { defineConfig } from "vite";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
+import { configDefaults } from "vitest/config";
 
 export default defineConfig(({ mode }) => ({
   plugins: [
@@ -20,6 +19,7 @@ export default defineConfig(({ mode }) => ({
     globals: true,
     environment: "jsdom",
     setupFiles: "./__tests__/setup/setup.ts",
+    exclude: [...configDefaults.exclude, "e2e/**"],
 
     coverage: {
       include: ["src/**/*.{ts,tsx}"],

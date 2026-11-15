@@ -16,7 +16,7 @@ function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 sm:px-6"
+        className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 sm:px-6"
       >
         <Hero />
         <About />

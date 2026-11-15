@@ -7,7 +7,7 @@ function Header() {
   const { t } = useLanguage();
 
   return (
-    <header className="mx-auto flex w-full max-w-3xl flex-col gap-3 p-4 sm:px-6">
+    <header className="mx-auto flex w-full max-w-5xl flex-col gap-3 p-4 sm:px-6">
       <div className="flex items-center justify-between gap-4">
         <span className="text-lg font-semibold">Goran Jović</span>
         <div className="flex items-center gap-2">
