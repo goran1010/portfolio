@@ -4,7 +4,9 @@
   },
   "nav": {
     "label": "Page sections",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "openMenu": "Open navigation",
+    "closeMenu": "Close navigation"
   },
   "sections": {
     "about": "About",

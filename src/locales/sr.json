@@ -4,7 +4,9 @@
   },
   "nav": {
     "label": "Sekcije stranice",
-    "skipToContent": "Preskoči na sadržaj"
+    "skipToContent": "Preskoči na sadržaj",
+    "openMenu": "Otvori navigaciju",
+    "closeMenu": "Zatvori navigaciju"
   },
   "sections": {
     "about": "O meni",

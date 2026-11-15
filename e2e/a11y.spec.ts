@@ -4,8 +4,22 @@ import { expect, test } from "@playwright/test";
 const WCAG_TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"];
 
 for (const language of [
-  { name: "English", locale: "en-GB", tag: "en", download: "Download CV" },
-  { name: "Serbian", locale: "sr-RS", tag: "sr-Latn", download: "Preuzmi CV" },
+  {
+    name: "English",
+    locale: "en-GB",
+    tag: "en",
+    download: "Download CV",
+    openMenu: "Open navigation",
+    navigation: "Page sections",
+  },
+  {
+    name: "Serbian",
+    locale: "sr-RS",
+    tag: "sr-Latn",
+    download: "Preuzmi CV",
+    openMenu: "Otvori navigaciju",
+    navigation: "Sekcije stranice",
+  },
 ]) {
   for (const theme of ["light", "dark"] as const) {
     for (const width of [320, 1280]) {
@@ -16,9 +30,7 @@ for (const language of [
           viewport: { width, height: 900 },
         });
 
-        test("page and CV chooser have no detectable WCAG 2.2 AA violations", async ({
-          page,
-        }) => {
+        test.beforeEach(async ({ page }) => {
           await page.goto("/");
           await expect(
             page.getByRole("heading", { level: 1, name: "Goran Jović" }),
@@ -29,7 +41,11 @@ for (const language of [
           );
           await expect(page.locator("html")).toHaveCSS("color-scheme", theme);
           await page.evaluate(() => document.fonts.ready);
+        });
 
+        test("page and CV chooser have no detectable WCAG 2.2 AA violations", async ({
+          page,
+        }) => {
           const closed = await new AxeBuilder({ page })
             .withTags(WCAG_TAGS)
             .analyze();
@@ -48,6 +64,21 @@ for (const language of [
             .analyze();
           expect(open.violations).toEqual([]);
         });
+
+        if (width === 320) {
+          test("expanded mobile navigation has no detectable WCAG 2.2 AA violations", async ({
+            page,
+          }) => {
+            await page.getByRole("button", { name: language.openMenu }).click();
+            await expect(
+              page.getByRole("navigation", { name: language.navigation }),
+            ).toBeVisible();
+            const results = await new AxeBuilder({ page })
+              .withTags(WCAG_TAGS)
+              .analyze();
+            expect(results.violations).toEqual([]);
+          });
+        }
       });
     }
   }

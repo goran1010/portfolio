@@ -9,6 +9,8 @@ for (const language of [
     download: "Download CV",
     skip: "Skip to content",
     navigation: "Page sections",
+    openMenu: "Open navigation",
+    closeMenu: "Close navigation",
     sections: [
       { id: "about", name: "About" },
       { id: "experience", name: "Open source & research" },
@@ -23,6 +25,8 @@ for (const language of [
     download: "Preuzmi CV",
     skip: "Preskoči na sadržaj",
     navigation: "Sekcije stranice",
+    openMenu: "Otvori navigaciju",
+    closeMenu: "Zatvori navigaciju",
     sections: [
       { id: "about", name: "O meni" },
       { id: "experience", name: "Open-source i istraživanje" },
@@ -64,6 +68,31 @@ for (const language of [
       const navigation = page.getByRole("navigation", {
         name: language.navigation,
       });
+      await expect(
+        page.getByRole("button", { name: language.openMenu }),
+      ).toHaveCount(0);
+      const theme = page.getByRole("button", { name: /^(Theme|Tema):/ });
+      const languageControl = page.getByRole("button", {
+        name: /^(Language|Jezik):/,
+      });
+      expect(
+        await theme.evaluate(
+          (element) => element.getBoundingClientRect().right,
+        ),
+      ).toBeLessThan(
+        await navigation.evaluate(
+          (element) => element.getBoundingClientRect().left,
+        ),
+      );
+      expect(
+        await navigation.evaluate(
+          (element) => element.getBoundingClientRect().right,
+        ),
+      ).toBeLessThan(
+        await languageControl.evaluate(
+          (element) => element.getBoundingClientRect().left,
+        ),
+      );
       for (const { id, name } of language.sections) {
         const section = page.getByRole("region", { name, exact: true });
         await expect(section).toBeVisible();
@@ -72,8 +101,131 @@ for (const language of [
         await expect(
           section.getByRole("heading", { level: 2, name, exact: true }),
         ).toBeInViewport();
+        await expect(section).toBeFocused();
       }
       expect(errors).toEqual([]);
+    });
+
+    test("mobile navigation supports keyboard, section selection and dismissal", async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width: 320, height: 900 });
+      await page.goto("/");
+      const navigation = page.getByRole("navigation", {
+        name: language.navigation,
+      });
+      const theme = page.getByRole("button", { name: /^(Theme|Tema):/ });
+      const languageControl = page.getByRole("button", {
+        name: /^(Language|Jezik):/,
+      });
+      const open = page.getByRole("button", { name: language.openMenu });
+      const close = page.getByRole("button", { name: language.closeMenu });
+
+      await expect(navigation).toHaveCount(0);
+      await expect(open).toHaveAttribute("aria-expanded", "false");
+      expect(
+        await theme.evaluate(
+          (element) => element.getBoundingClientRect().right,
+        ),
+      ).toBeLessThan(
+        await open.evaluate((element) => element.getBoundingClientRect().left),
+      );
+      expect(
+        await open.evaluate((element) => element.getBoundingClientRect().right),
+      ).toBeLessThan(
+        await languageControl.evaluate(
+          (element) => element.getBoundingClientRect().left,
+        ),
+      );
+      await theme.focus();
+      await page.keyboard.press("Tab");
+      await expect(open).toBeFocused();
+      await page.keyboard.press("Tab");
+      await expect(languageControl).toBeFocused();
+      await page.keyboard.press("Shift+Tab");
+      await page.keyboard.press("Space");
+      await expect(close).toHaveAttribute("aria-expanded", "true");
+      await expect(navigation).toBeInViewport({ ratio: 1 });
+      await page.keyboard.press("Tab");
+      await expect(navigation.getByRole("link").first()).toBeFocused();
+      await page.keyboard.press("Escape");
+      await expect(open).toBeFocused();
+      await expect(navigation).toHaveCount(0);
+
+      await page.keyboard.press("Enter");
+      await page.keyboard.press("Tab");
+      await page.keyboard.press("Enter");
+      await expect(page).toHaveURL(/#about$/);
+      await expect(page.locator("#about")).toBeFocused();
+      await expect(navigation).toHaveCount(0);
+
+      for (const { id, name } of language.sections) {
+        await open.click();
+        await navigation.getByRole("link", { name, exact: true }).click();
+        await expect(page).toHaveURL(new RegExp(`#${id}$`));
+        await expect(
+          page.getByRole("region", { name, exact: true }),
+        ).toBeFocused();
+        await expect(navigation).toHaveCount(0);
+      }
+
+      await open.click();
+      await page.getByRole("button", { name: language.download }).click();
+      await expect(navigation).toHaveCount(0);
+
+      await open.click();
+      for (let index = 0; index < 7; index++) await page.keyboard.press("Tab");
+      await expect(
+        page.getByRole("button", { name: language.download }),
+      ).toBeFocused();
+      await expect(navigation).toHaveCount(0);
+      expect(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+      ).toBe(true);
+    });
+
+    test("resizing across 768px preserves visible focus and resets the mobile menu", async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width: 767, height: 900 });
+      await page.goto("/");
+      const navigation = page.getByRole("navigation", {
+        name: language.navigation,
+      });
+      const open = page.getByRole("button", { name: language.openMenu });
+      const firstLink = navigation.getByRole("link").first();
+      await open.click();
+      await page.keyboard.press("Tab");
+      await expect(firstLink).toBeFocused();
+
+      await page.setViewportSize({ width: 768, height: 900 });
+      await expect(open).toHaveCount(0);
+      await expect(navigation).toBeVisible();
+      await expect(firstLink).toBeFocused();
+
+      await page.setViewportSize({ width: 767, height: 900 });
+      await expect(navigation).toHaveCount(0);
+      await expect(open).toHaveAttribute("aria-expanded", "false");
+      await expect(open).toBeFocused();
+
+      await page.setViewportSize({ width: 768, height: 900 });
+      await expect(firstLink).toBeFocused();
+      await expect(open).toHaveCount(0);
+
+      await page.setViewportSize({ width: 320, height: 900 });
+      await expect(navigation).toHaveCount(0);
+      await expect(open).toBeFocused();
+      expect(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+      ).toBe(true);
     });
 
     test("supports the skip link and CV chooser keyboard navigation at 320px", async ({

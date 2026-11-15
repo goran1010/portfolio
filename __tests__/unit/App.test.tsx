@@ -22,8 +22,9 @@ describe("App", () => {
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
   });
 
-  test("every nav link points at a section with the same heading", () => {
-    renderWithProviders(<App />);
+  test("every nav link points at a section with the same heading", async () => {
+    const { user } = renderWithProviders(<App />);
+    await user.click(screen.getByRole("button", { name: "Open navigation" }));
 
     const nav = screen.getByRole("navigation", { name: "Page sections" });
     const links = within(nav).getAllByRole("link");
@@ -67,6 +68,7 @@ describe("App", () => {
     expect(screen.getByRole("region", { name: "O meni" })).toHaveTextContent(
       "Web razvoj sam učio kroz The Odin Project",
     );
+    await user.click(screen.getByRole("button", { name: "Otvori navigaciju" }));
     expect(screen.getByRole("link", { name: "Vještine" })).toBeInTheDocument();
     expect(
       screen.getByRole("region", { name: "Open-source i istraživanje" }),

@@ -11,6 +11,7 @@ function Section({ id, children }: { id: SectionId; children?: ReactNode }) {
     <section
       id={id}
       aria-labelledby={headingId}
+      tabIndex={-1}
       className="flex flex-col gap-4 py-10"
     >
       <h2 id={headingId} className="text-2xl font-bold">
