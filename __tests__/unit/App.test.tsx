@@ -62,6 +62,9 @@ describe("App", () => {
     expect(
       screen.getByRole("region", { name: "Open-source i istraživanje" }),
     ).toHaveTextContent("maintainer od maja 2026");
+    expect(screen.getByRole("region", { name: "Projekti" })).toHaveTextContent(
+      "Open-source portal",
+    );
     expect(document.documentElement.lang).toBe("sr-Latn");
   });
 });

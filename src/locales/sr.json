@@ -52,6 +52,24 @@
       "description": "Učestvujem u istraživanju uticaja AI alata na rad programera. Završio sam 200+ zadataka na ličnim i open-source projektima, uz AI pomoć i bez nje."
     }
   },
+  "projects": {
+    "atlas": {
+      "name": "Atlas Univerziteta",
+      "description": "Open-source portal o univerzitetima i studijskim programima u Bosni i Hercegovini, Srbiji, Hrvatskoj i Crnoj Gori. Omogućava pretragu, prijavu korisnika i slanje prijedloga za ispravke podataka koje administrator provjerava."
+    },
+    "waldo": {
+      "name": "Where's Waldo?",
+      "description": "Interaktivna web igra sa zumiranjem slike, mjerenjem vremena i rang-listom. Koristi React frontend i zaseban Express/Prisma API sa JWT autentifikacijom."
+    },
+    "technologies": "Tehnologije",
+    "links": {
+      "live": "Live app",
+      "code": "Code",
+      "frontend": "Frontend",
+      "backend": "Backend"
+    },
+    "moreOnGithub": "Više na GitHubu"
+  },
   "footer": {
     "source": "Izvorni kod"
   }

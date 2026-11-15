@@ -52,6 +52,24 @@
       "description": "I participate in research on the impact of AI tools on developer productivity. I've completed 200+ tasks across personal and open-source projects, with and without AI assistance."
     }
   },
+  "projects": {
+    "atlas": {
+      "name": "Atlas Univerziteta",
+      "description": "An open-source directory of universities and study programs in Bosnia and Herzegovina, Serbia, Croatia, and Montenegro. Includes search, user sign-in, and administrator review of suggested data corrections."
+    },
+    "waldo": {
+      "name": "Where's Waldo?",
+      "description": "A browser game with a zoomable image, timed gameplay, and a leaderboard. The React frontend connects to a separate Express/Prisma API with JWT authentication."
+    },
+    "technologies": "Technologies",
+    "links": {
+      "live": "Live app",
+      "code": "Code",
+      "frontend": "Frontend",
+      "backend": "Backend"
+    },
+    "moreOnGithub": "More on GitHub"
+  },
   "footer": {
     "source": "Source code"
   }

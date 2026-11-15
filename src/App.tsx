@@ -3,6 +3,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { OpenSource } from "./components/OpenSource";
+import { Projects } from "./components/Projects";
 import { Section } from "./components/Section";
 import { SkipLink } from "./components/SkipLink";
 
@@ -19,7 +20,7 @@ function App() {
         <Hero />
         <About />
         <OpenSource />
-        <Section id="projects" />
+        <Projects />
         <Section id="skills" />
         <Section id="contact" />
       </main>

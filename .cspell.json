@@ -15,5 +15,12 @@
     "@cspell/dict-sr-latn/cspell-ext.json"
   ],
   "dictionaries": ["hr-hr", "sr-latn"],
-  "words": ["METR", "nvmrc", "pullrequests", "requestove"]
+  "words": [
+    "GitHubu",
+    "METR",
+    "nvmrc",
+    "pullrequests",
+    "requestove",
+    "zoomable"
+  ]
 }
