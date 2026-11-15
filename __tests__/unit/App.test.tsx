@@ -65,6 +65,22 @@ describe("App", () => {
     expect(screen.getByRole("region", { name: "Projekti" })).toHaveTextContent(
       "Open-source portal",
     );
+    expect(
+      within(screen.getByRole("region", { name: "Vještine" })).getByRole(
+        "list",
+        {
+          name: "Frontend i jezici",
+        },
+      ),
+    ).toHaveTextContent("React Router");
+    expect(
+      within(screen.getByRole("region", { name: "Kontakt" })).getByRole(
+        "link",
+        {
+          name: "goran1010jovic@gmail.com",
+        },
+      ),
+    ).toHaveAttribute("href", "mailto:goran1010jovic@gmail.com");
     expect(document.documentElement.lang).toBe("sr-Latn");
   });
 });

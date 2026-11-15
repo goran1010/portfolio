@@ -70,6 +70,14 @@
     },
     "moreOnGithub": "Više na GitHubu"
   },
+  "skills": {
+    "groups": {
+      "frontend": "Frontend i jezici",
+      "backend": "Backend i baze podataka",
+      "testing": "Testiranje",
+      "tools": "Alati i postavljanje aplikacija"
+    }
+  },
   "footer": {
     "source": "Izvorni kod"
   }

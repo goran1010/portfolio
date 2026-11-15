@@ -1,10 +1,11 @@
 import { About } from "./components/About";
+import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { OpenSource } from "./components/OpenSource";
 import { Projects } from "./components/Projects";
-import { Section } from "./components/Section";
+import { Skills } from "./components/Skills";
 import { SkipLink } from "./components/SkipLink";
 
 function App() {
@@ -21,8 +22,8 @@ function App() {
         <About />
         <OpenSource />
         <Projects />
-        <Section id="skills" />
-        <Section id="contact" />
+        <Skills />
+        <Contact />
       </main>
       <Footer />
     </>

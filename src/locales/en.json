@@ -70,6 +70,14 @@
     },
     "moreOnGithub": "More on GitHub"
   },
+  "skills": {
+    "groups": {
+      "frontend": "Frontend & languages",
+      "backend": "Backend & data",
+      "testing": "Testing & quality",
+      "tools": "Tools & deployment"
+    }
+  },
   "footer": {
     "source": "Source code"
   }
