@@ -10,30 +10,73 @@ afterEach(restoreNavigatorLanguages);
 
 describe("Hero", () => {
   test.each([
-    { language: "en", label: "Download CV (PDF)" },
-    { language: "sr", label: "Preuzmi CV (PDF)" },
+    {
+      preference: "en",
+      systemLanguage: "en-US",
+      label: "Download CV",
+      title: "Software Developer",
+      htmlLanguage: "en",
+    },
+    {
+      preference: "sr",
+      systemLanguage: "en-US",
+      label: "Preuzmi CV",
+      title: "Programer",
+      htmlLanguage: "sr-Latn",
+    },
+    {
+      preference: null,
+      systemLanguage: "en-US",
+      label: "Download CV",
+      title: "Software Developer",
+      htmlLanguage: "en",
+    },
+    {
+      preference: null,
+      systemLanguage: "bs-BA",
+      label: "Preuzmi CV",
+      title: "Programer",
+      htmlLanguage: "sr-Latn",
+    },
   ])(
-    "downloads the $language CV for an explicit language",
-    ({ language, label }) => {
-      localStorage.setItem("language", language);
+    "offers both CVs with preference $preference and system $systemLanguage",
+    async ({ preference, systemLanguage, label, title, htmlLanguage }) => {
+      if (preference) localStorage.setItem("language", preference);
+      setNavigatorLanguages([systemLanguage]);
 
-      renderWithProviders(<Hero />);
+      const { user } = renderWithProviders(<Hero />);
+      const trigger = screen.getByRole("button", { name: label });
+      const pageTitle = document.title;
 
-      const link = screen.getByRole("link", { name: label });
-      expect(link).toHaveAttribute("href", `/Goran-Jovic-CV-${language}.pdf`);
-      expect(link).toHaveAttribute("download");
+      for (const { name, code } of [
+        { name: "English (PDF)", code: "en" },
+        { name: "Srpski (PDF)", code: "sr" },
+      ]) {
+        await user.click(trigger);
+
+        const link = screen.getByRole("link", { name });
+        expect(link).toHaveAttribute("href", `/Goran-Jovic-CV-${code}.pdf`);
+        expect(link).toHaveAttribute("download");
+
+        // jsdom cannot perform native downloads; the browser check covers them.
+        link.addEventListener(
+          "click",
+          (event) => {
+            event.preventDefault();
+          },
+          { once: true },
+        );
+        await user.click(link);
+
+        expect(trigger).toHaveAttribute("aria-expanded", "false");
+        expect(trigger).toHaveFocus();
+        expect(screen.getByText(title)).toBeInTheDocument();
+        expect(document.documentElement.lang).toBe(htmlLanguage);
+        expect(document.title).toBe(pageTitle);
+        expect(localStorage.getItem("language")).toBe(preference);
+      }
     },
   );
-
-  test("uses the resolved system language for the CV download", () => {
-    setNavigatorLanguages(["bs-BA"]);
-
-    renderWithProviders(<Hero />);
-
-    expect(
-      screen.getByRole("link", { name: "Preuzmi CV (PDF)" }),
-    ).toHaveAttribute("href", "/Goran-Jovic-CV-sr.pdf");
-  });
 
   test("links to the contact details from the CV", () => {
     localStorage.setItem("language", "en");

@@ -33,7 +33,7 @@
     "title": "Programer",
     "pitch": "Razvijam web aplikacije koristeći React, Node.js i PostgreSQL, uz automatizovane testove.",
     "location": "Banja Luka i okolina, Bosna i Hercegovina",
-    "downloadCv": "Preuzmi CV (PDF)"
+    "downloadCv": "Preuzmi CV"
   },
   "about": {
     "body": "Web razvoj sam učio kroz The Odin Project, a danas kao maintainer pomažem u unapređivanju njegovog nastavnog programa. U međuvremenu sam napravio i postavio svoje aplikacije, od korisničkog interfejsa do servera i baze podataka. Trudim se da kod bude pregledan i pouzdan, uz automatizovane testove, pregled izmjena i CI/CD."

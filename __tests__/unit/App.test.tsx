@@ -43,8 +43,8 @@ describe("App", () => {
 
     expect(screen.getByText("Software Developer")).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "Download CV (PDF)" }),
-    ).toHaveAttribute("href", "/Goran-Jovic-CV-en.pdf");
+      screen.getByRole("button", { name: "Download CV" }),
+    ).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "About" })).toHaveTextContent(
       "I started learning web development through The Odin Project",
     );
@@ -53,8 +53,17 @@ describe("App", () => {
 
     expect(screen.getByText("Programer")).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "Preuzmi CV (PDF)" }),
-    ).toHaveAttribute("href", "/Goran-Jovic-CV-sr.pdf");
+      screen.getByRole("button", { name: "Preuzmi CV" }),
+    ).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Preuzmi CV" }));
+    expect(screen.getByRole("link", { name: "English (PDF)" })).toHaveAttribute(
+      "href",
+      "/Goran-Jovic-CV-en.pdf",
+    );
+    expect(screen.getByRole("link", { name: "Srpski (PDF)" })).toHaveAttribute(
+      "href",
+      "/Goran-Jovic-CV-sr.pdf",
+    );
     expect(screen.getByRole("region", { name: "O meni" })).toHaveTextContent(
       "Web razvoj sam učio kroz The Odin Project",
     );

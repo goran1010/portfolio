@@ -89,6 +89,7 @@
   --accent: #2563eb;
   --accent-text: #1d4ed8;
   --surface-1: rgba(255, 255, 255, 0.92);
+  --surface-popover: #ffffff;
   --border-color: rgba(59, 130, 246, 0.45);
   --hover-surface: rgba(59, 130, 246, 0.14);
   --focus-ring: rgba(37, 99, 235, 0.85);
@@ -104,6 +105,7 @@
   --accent: #2563eb;
   --accent-text: #60a5fa;
   --surface-1: rgba(15, 23, 42, 0.74);
+  --surface-popover: #0f172a;
   --border-color: rgba(148, 163, 184, 0.33);
   --hover-surface: rgba(96, 165, 250, 0.13);
   --focus-ring: rgba(147, 197, 253, 0.52);
