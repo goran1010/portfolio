@@ -7,6 +7,7 @@ for (const language of [
     name: "English",
     locale: "en-GB",
     download: "Download CV",
+    contact: "Contact",
     skip: "Skip to content",
     navigation: "Page sections",
     openMenu: "Open navigation",
@@ -23,6 +24,7 @@ for (const language of [
     name: "Serbian",
     locale: "sr-RS",
     download: "Preuzmi CV",
+    contact: "Kontakt",
     skip: "Preskoči na sadržaj",
     navigation: "Sekcije stranice",
     openMenu: "Otvori navigaciju",
@@ -50,6 +52,9 @@ for (const language of [
         page.getByRole("heading", { level: 1, name: "Goran Jović" }),
       ).toBeVisible();
       await expect(page.getByRole("main").getByRole("region")).toHaveCount(5);
+      await expect(
+        page.getByRole("main").getByRole("region").first(),
+      ).toHaveAccessibleName(language.contact);
       await expect(
         page.getByRole("heading", { name: "The Odin Project", exact: true }),
       ).toBeVisible();
@@ -279,9 +284,8 @@ for (const language of [
       await page.keyboard.press("Tab");
       await expect(
         page
-          .getByRole("main")
-          .getByRole("link", { name: /^GitHub / })
-          .first(),
+          .getByRole("region", { name: language.contact, exact: true })
+          .getByRole("link", { name: "goran1010jovic@gmail.com" }),
       ).toBeFocused();
       await expect(trigger).toHaveAttribute("aria-expanded", "false");
 

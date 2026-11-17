@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
 import { Hero } from "../../../src/components/Hero";
 import {
   restoreNavigatorLanguages,
@@ -78,20 +78,26 @@ describe("Hero", () => {
     },
   );
 
-  test("links to the contact details from the CV", () => {
+  test("groups contact details in a section after the CV control", () => {
     localStorage.setItem("language", "en");
 
     renderWithProviders(<Hero />);
 
-    expect(screen.getByRole("link", { name: /^GitHub / })).toHaveAttribute(
-      "href",
-      "https://github.com/goran1010",
-    );
-    expect(screen.getByRole("link", { name: /^LinkedIn / })).toHaveAttribute(
-      "href",
-      "https://www.linkedin.com/in/goran-jovic-dev",
-    );
-    const email = screen.getByRole("link", { name: "Email" });
+    const contact = screen.getByRole("region", { name: "Contact" });
+    const download = screen.getByRole("button", { name: "Download CV" });
+    expect(
+      download.compareDocumentPosition(contact) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      within(contact).getByRole("link", { name: /^GitHub / }),
+    ).toHaveAttribute("href", "https://github.com/goran1010");
+    expect(
+      within(contact).getByRole("link", { name: /^LinkedIn / }),
+    ).toHaveAttribute("href", "https://www.linkedin.com/in/goran-jovic-dev");
+    const email = within(contact).getByRole("link", {
+      name: "goran1010jovic@gmail.com",
+    });
     expect(email).toHaveAttribute("href", "mailto:goran1010jovic@gmail.com");
     expect(email).not.toHaveAttribute("target");
   });

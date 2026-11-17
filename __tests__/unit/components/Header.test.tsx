@@ -44,7 +44,7 @@ function navLinks() {
 }
 
 describe("Header", () => {
-  test("links to every section in page order", () => {
+  test("links to every portfolio section", () => {
     mockDesktop(true);
     renderWithProviders(<Header />);
 

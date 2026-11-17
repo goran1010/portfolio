@@ -50,7 +50,7 @@ try {
       path: imagePath,
       animations: "disabled",
       style:
-        "header, main > section, footer { display: none; } main { min-height: 100vh; justify-content: center; }",
+        "header, main section, footer { display: none; } main { min-height: 100vh; justify-content: center; }",
     });
     await mkdir(resolve(root, "dist/images"), { recursive: true });
     await copyFile(imagePath, resolve(root, "dist/images/og-image.png"));

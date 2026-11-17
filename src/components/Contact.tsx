@@ -7,7 +7,7 @@ function Contact() {
   const { t } = useLanguage();
 
   return (
-    <Section id="contact">
+    <Section id="contact" className="pt-2">
       <address className="flex flex-col items-start gap-4 not-italic">
         <p className="flex flex-wrap gap-x-2 gap-y-1">
           <span className="font-medium">{t("links.email")}:</span>
