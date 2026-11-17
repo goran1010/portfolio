@@ -33,8 +33,6 @@
   },
   "hero": {
     "title": "Software Developer",
-    "pitch": "I build full-stack web applications with React, Node.js, and PostgreSQL, backed by automated tests.",
-    "location": "Banja Luka area, Bosnia and Herzegovina",
     "downloadCv": "Download CV"
   },
   "about": {

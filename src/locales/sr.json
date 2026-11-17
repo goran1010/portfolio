@@ -33,8 +33,6 @@
   },
   "hero": {
     "title": "Programer",
-    "pitch": "Razvijam web aplikacije koristeći React, Node.js i PostgreSQL, uz automatizovane testove.",
-    "location": "Banja Luka i okolina, Bosna i Hercegovina",
     "downloadCv": "Preuzmi CV"
   },
   "about": {
