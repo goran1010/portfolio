@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Goran Jović - Social preview</title>
+    <style>
+      @font-face {
+        font-family: Roboto;
+        src: url("/fonts/roboto-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/fonts/roboto-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/fonts/roboto-latin-ext-700-normal.woff2") format("woff2");
+        font-weight: 700;
+        unicode-range: U+0100-024F;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #e2e8f0;
+        background: linear-gradient(135deg, #08101e, #10223d);
+        font-family: Roboto, sans-serif;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 344px;
+        align-items: center;
+        gap: 56px;
+        width: 1200px;
+        height: 630px;
+        padding: 64px;
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 84px;
+        line-height: 1.1;
+        letter-spacing: -3px;
+      }
+
+      .role {
+        margin-top: 16px;
+        color: #60a5fa;
+        font-size: 40px;
+        line-height: 1.2;
+      }
+
+      .contact {
+        display: grid;
+        gap: 14px;
+        margin-top: 56px;
+        font-size: 32px;
+        line-height: 1.2;
+      }
+
+      #github,
+      #website {
+        color: #94a3b8;
+        font-size: 28px;
+      }
+
+      img {
+        width: 344px;
+        height: 344px;
+        border: 1px solid #334155;
+        border-radius: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>Goran Jović</h1>
+        <p class="role">Software Developer</p>
+        <div class="contact">
+          <p id="email"></p>
+          <p id="github"></p>
+          <p id="website"></p>
+        </div>
+      </div>
+      <img
+        src="/images/CV_photo.png"
+        alt="Goran Jović"
+        width="344"
+        height="344"
+      />
+    </main>
+  </body>
+</html>

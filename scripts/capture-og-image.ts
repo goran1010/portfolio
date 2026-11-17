@@ -1,7 +1,8 @@
-import { mkdir, copyFile } from "node:fs/promises";
+import { mkdir, copyFile, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { chromium } from "@playwright/test";
 import { preview } from "vite";
+import { CONTACT_LINKS, EMAIL_ADDRESS } from "../src/data/contact.ts";
 
 const root = resolve(import.meta.dirname, "..");
 const imagePath = resolve(root, "public/images/og-image.png");
@@ -24,33 +25,39 @@ try {
       viewport: { width: 1200, height: 630 },
       deviceScaleFactor: 1,
       locale: "en-GB",
-      colorScheme: "light",
+      colorScheme: "dark",
       reducedMotion: "reduce",
-      storageState: {
-        cookies: [],
-        origins: [
-          {
-            origin,
-            localStorage: [
-              { name: "language", value: "en" },
-              { name: "theme", value: "light" },
-            ],
-          },
-        ],
-      },
     });
     await page.goto(origin);
-    await page
-      .getByRole("heading", { name: "Goran Jović", level: 1 })
-      .waitFor();
-    await page.getByText("Software Developer", { exact: true }).waitFor();
-    await page.evaluate(() => document.fonts.ready);
+    const canonicalUrl = await page
+      .locator('link[rel="canonical"]')
+      .getAttribute("href");
+    if (!canonicalUrl) {
+      throw new Error("The portfolio must have a canonical URL.");
+    }
+    await page.setContent(
+      await readFile(resolve(root, "scripts/og-card.html"), "utf8"),
+    );
+    await page.locator("#email").evaluate((element, email) => {
+      element.textContent = email;
+    }, EMAIL_ADDRESS);
+    await page.locator("#github").evaluate(
+      (element, github) => {
+        element.textContent = github;
+      },
+      CONTACT_LINKS.github.replace("https://", ""),
+    );
+    await page.locator("#website").evaluate((element, website) => {
+      element.textContent = website;
+    }, new URL(canonicalUrl).hostname);
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      await Promise.all(Array.from(document.images, (image) => image.decode()));
+    });
     await mkdir(resolve(root, "public/images"), { recursive: true });
     await page.screenshot({
       path: imagePath,
       animations: "disabled",
-      style:
-        "header, main section, footer { display: none; } main { min-height: 100vh; justify-content: center; }",
     });
     await mkdir(resolve(root, "dist/images"), { recursive: true });
     await copyFile(imagePath, resolve(root, "dist/images/og-image.png"));
